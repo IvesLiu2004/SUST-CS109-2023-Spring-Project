@@ -17,7 +17,7 @@ public class ChessGameFrame extends JFrame {
 
     private ChessboardComponent chessboardComponent;
     public ChessGameFrame(int width, int height) {
-        setTitle("2023 CS109 Project Demo"); //设置标题
+        setTitle("2023 CS109 Project"); //设置标题
         this.WIDTH = width;
         this.HEIGTH = height;
         this.ONE_CHESS_SIZE = (HEIGTH * 4 / 5) / 9;

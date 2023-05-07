@@ -44,7 +44,23 @@ public class ChessboardComponent extends JComponent {
      */
     public void initiateChessComponent(Chessboard chessboard) {
         Cell[][] grid = chessboard.getGrid();
-        for (int i = 0; i < CHESSBOARD_ROW_SIZE.getNum(); i++) {
+        ChessPiece chessPieceElephant = grid[0][0].getPiece();
+        gridComponents[0][0].add(
+                new ElephantChessComponent(
+                        chessPieceElephant.getOwner(),
+                        CHESS_SIZE));
+        ChessPiece chessPieceTrap = grid[0][2].getPiece();
+        gridComponents[0][2].add(
+                new TrapChessComponent(
+                        chessPieceTrap.getOwner(),
+                        CHESS_SIZE));
+        ChessPiece chessPieceTiger = grid[8][0].getPiece();
+        gridComponents[8][0].add(
+                new TigerChessComponent(
+                        chessPieceTiger.getOwner(),
+                        CHESS_SIZE));
+        //TODO:把剩下的写完
+        /*for (int i = 0; i < CHESSBOARD_ROW_SIZE.getNum(); i++) {
             for (int j = 0; j < CHESSBOARD_COL_SIZE.getNum(); j++) {
                 // TODO: Implement the initialization checkerboard
 
@@ -57,7 +73,7 @@ public class ChessboardComponent extends JComponent {
                                     CHESS_SIZE));
                 }
             }
-        }
+        }*/
 
     }
 

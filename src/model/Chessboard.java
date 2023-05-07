@@ -27,7 +27,7 @@ public class Chessboard {
         grid[0][0].setPiece(new ChessPiece(PlayerColor.BLUE, "Tiger",8));
         grid[0][2].setPiece(new ChessPiece(PlayerColor.BLUE, "Trap",8));
         grid[0][3].setPiece(new ChessPiece(PlayerColor.BLUE, "Cave",8));
-        grid[0][4].setPiece(new ChessPiece(PlayerColor.BLUE, "TRAP",8));
+        grid[0][4].setPiece(new ChessPiece(PlayerColor.BLUE, "Trap",8));
         grid[0][6].setPiece(new ChessPiece(PlayerColor.BLUE, "Lion",8));
         grid[1][1].setPiece(new ChessPiece(PlayerColor.BLUE, "Dog",8));
         grid[1][3].setPiece(new ChessPiece(PlayerColor.BLUE, "Trap",8));
@@ -61,6 +61,7 @@ public class Chessboard {
     private int calculateDistance(ChessboardPoint src, ChessboardPoint dest) {
         return Math.abs(src.getRow() - dest.getRow()) + Math.abs(src.getCol() - dest.getCol());
     }
+    //初始地 到 目的地  算距离
 
     private ChessPiece removeChessPiece(ChessboardPoint point) {
         ChessPiece chessPiece = getChessPieceAt(point);
