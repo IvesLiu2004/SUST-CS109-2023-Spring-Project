@@ -24,9 +24,31 @@ public class Chessboard {
     }
 
     private void initPieces() {
-        grid[0][0].setPiece(new ChessPiece(PlayerColor.BLUE, "Elephant",8));
-        grid[8][6].setPiece(new ChessPiece(PlayerColor.RED, "Elephant",8));
-    }
+        grid[0][0].setPiece(new ChessPiece(PlayerColor.BLUE, "Tiger",8));
+        grid[0][2].setPiece(new ChessPiece(PlayerColor.BLUE, "Trap",8));
+        grid[0][3].setPiece(new ChessPiece(PlayerColor.BLUE, "Cave",8));
+        grid[0][4].setPiece(new ChessPiece(PlayerColor.BLUE, "TRAP",8));
+        grid[0][6].setPiece(new ChessPiece(PlayerColor.BLUE, "Lion",8));
+        grid[1][1].setPiece(new ChessPiece(PlayerColor.BLUE, "Dog",8));
+        grid[1][3].setPiece(new ChessPiece(PlayerColor.BLUE, "Trap",8));
+        grid[1][5].setPiece(new ChessPiece(PlayerColor.BLUE, "Cat",8));
+        grid[2][0].setPiece(new ChessPiece(PlayerColor.BLUE, "Mouse",8));
+        grid[2][2].setPiece(new ChessPiece(PlayerColor.BLUE, "Leopard",8));
+        grid[2][4].setPiece(new ChessPiece(PlayerColor.BLUE, "Wolf",8));
+        grid[2][6].setPiece(new ChessPiece(PlayerColor.BLUE, "Elephant",8));
+        grid[8][6].setPiece(new ChessPiece(PlayerColor.RED, "Lion",8));
+        grid[8][4].setPiece(new ChessPiece(PlayerColor.RED, "Trap",8));
+        grid[8][3].setPiece(new ChessPiece(PlayerColor.RED, "Cave",8));
+        grid[8][2].setPiece(new ChessPiece(PlayerColor.RED, "TRAP",8));
+        grid[8][0].setPiece(new ChessPiece(PlayerColor.RED, "Tiger",8));
+        grid[7][5].setPiece(new ChessPiece(PlayerColor.RED, "Dog",8));
+        grid[7][3].setPiece(new ChessPiece(PlayerColor.RED, "Trap",8));
+        grid[7][1].setPiece(new ChessPiece(PlayerColor.RED, "Cat",8));
+        grid[6][6].setPiece(new ChessPiece(PlayerColor.RED, "Mouse",8));
+        grid[6][4].setPiece(new ChessPiece(PlayerColor.RED, "Leopard",8));
+        grid[6][2].setPiece(new ChessPiece(PlayerColor.RED, "Wolf",8));
+        grid[6][0].setPiece(new ChessPiece(PlayerColor.RED, "Elephant",8));
+    }//把棋盘写好
 
     private ChessPiece getChessPieceAt(ChessboardPoint point) {
         return getGridAt(point).getPiece();
