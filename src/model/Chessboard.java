@@ -98,11 +98,24 @@ public class Chessboard {
         if (getChessPieceAt(src) == null || getChessPieceAt(dest) != null) {
             return false;
         }
+        if (dest.getCol()>=1 && dest.getCol()<=2 && dest.getRow()>=3 && dest.getRow()<=5){
+            return false;
+        }
+        if (dest.getCol()>=4 && dest.getCol()<=5 && dest.getRow()>=3 && dest.getRow()<=5){
+            return false;
+        }
+        //TODO:还需完善
         return calculateDistance(src, dest) == 1;
     }
 
 
     public boolean isValidCapture(ChessboardPoint src, ChessboardPoint dest) {
+        /*if (getChessPieceAt(src).getName() == "Cave" || getChessPieceAt(src).getName() == "Trap" ){
+            return true;
+        }
+        if (getChessPieceAt(src).getName() == "River"){
+            return true;
+        }*/
         // TODO:Fix this method
         return false;
     }
