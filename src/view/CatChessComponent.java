@@ -3,7 +3,6 @@ package view;
 
 import model.PlayerColor;
 
-import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -14,6 +13,7 @@ public class CatChessComponent extends AnimalChessComponent {
     private PlayerColor owner;
 
     private boolean selected;
+    private int rank=2;
 
     public CatChessComponent(PlayerColor owner, int size) {
         this.owner = owner;
@@ -45,6 +45,9 @@ public class CatChessComponent extends AnimalChessComponent {
             g.setColor(Color.RED);
             g.drawOval(0, 0, getWidth() , getHeight());
         }
+    }
+    public int getRank(){
+        return rank;
     }
 }
 

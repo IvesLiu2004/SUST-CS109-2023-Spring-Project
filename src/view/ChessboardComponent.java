@@ -245,6 +245,9 @@ public class ChessboardComponent extends JComponent {
 
     public void setChessComponentAtGrid(ChessboardPoint point, AnimalChessComponent chess) {
         getGridComponentAt(point).add(chess);
+        /*if (!(getChessboardPoint(point)==null)){
+            if (chess.getRank()>=)
+        }*/
     }
 
     public AnimalChessComponent removeChessComponentAtGrid(ChessboardPoint point) {

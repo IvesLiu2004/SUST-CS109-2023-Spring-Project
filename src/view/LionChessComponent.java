@@ -14,6 +14,7 @@ public class LionChessComponent extends AnimalChessComponent {
     private PlayerColor owner;
 
     private boolean selected;
+    private int rank=7;
 
     public LionChessComponent(PlayerColor owner, int size) {
         this.owner = owner;
@@ -45,5 +46,8 @@ public class LionChessComponent extends AnimalChessComponent {
             g.setColor(Color.RED);
             g.drawOval(0, 0, getWidth() , getHeight());
         }
+    }
+    public int getRank(){
+        return rank;
     }
 }

@@ -37,4 +37,8 @@ public class ChessPiece {
     public PlayerColor getOwner() {
         return owner;
     }
+
+    public int getRank() {
+        return rank;
+    }
 }

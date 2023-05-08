@@ -35,6 +35,7 @@ public abstract class  AnimalChessComponent extends JComponent {
     }
 
     public abstract void setSelected(boolean b);
+    public abstract int getRank();
 }
 
 

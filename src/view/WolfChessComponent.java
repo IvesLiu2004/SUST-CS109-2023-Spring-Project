@@ -14,6 +14,7 @@ class WolfChessComponent extends AnimalChessComponent {
     private PlayerColor owner;
 
     private boolean selected;
+    private int rank=4;
 
     public WolfChessComponent(PlayerColor owner, int size) {
         this.owner = owner;
@@ -45,5 +46,8 @@ class WolfChessComponent extends AnimalChessComponent {
             g.setColor(Color.RED);
             g.drawOval(0, 0, getWidth() , getHeight());
         }
+    }
+    public int getRank(){
+        return rank;
     }
 }

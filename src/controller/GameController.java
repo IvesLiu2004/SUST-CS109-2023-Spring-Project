@@ -79,11 +79,12 @@ public class GameController implements GameListener {
                 component.setSelected(true);
                 component.repaint();
             }
-        } else if (selectedPoint.equals(point)) {
+        } //拿棋
+        else if (selectedPoint.equals(point)) {
             selectedPoint = null;
             component.setSelected(false);
             component.repaint();
-        }
+        }//放棋
         // TODO: Implement capture function
     }
 
