@@ -9,6 +9,9 @@ import model.ChessboardPoint;
 import view.AnimalChessComponent;
 import view.CellComponent;
 import view.ChessboardComponent;
+import model.*;
+
+import java.util.ArrayList;
 
 /**
  * Controller is the connection between model and view,
@@ -26,6 +29,7 @@ public class GameController implements GameListener {
 
     // Record whether there is a selected piece before
     private ChessboardPoint selectedPoint;
+    public ArrayList<ChessboardPoint> canStepPoints;
 
     public GameController(ChessboardComponent view, Chessboard model) {
         this.view = view;
@@ -73,20 +77,72 @@ public class GameController implements GameListener {
     // click a cell with a chess
     @Override
     public void onPlayerClickChessPiece(ChessboardPoint point, AnimalChessComponent component) {
+//        if (selectedPoint == null) {
+//            if (model.getChessPieceOwner(point).equals(currentPlayer)) {
+//                selectedPoint = point;
+//                component.setSelected(true);
+//                component.repaint();
+//            }
+//        } //拿棋
+//        else if (selectedPoint.equals(point)) {
+//            selectedPoint = null;
+//            component.setSelected(false);
+//            component.repaint();
+//        }//放棋
+        // TODO: Implement capture function
         if (selectedPoint == null) {
-            if (model.getChessPieceOwner(point).equals(currentPlayer)) {
+            if (model.getChessOwner(point).equals(currentPlayer)) {
+//                canStepPoints = getCanStepPoints(point);
                 selectedPoint = point;
                 component.setSelected(true);
+                component.revalidate();
                 component.repaint();
+                view.repaint();
+                view.revalidate();
             }
-        } //拿棋
-        else if (selectedPoint.equals(point)) {
+        } else if (selectedPoint.equals(point)) {//2
             selectedPoint = null;
+//            canStepPoints = null;
+//            setCanStepFalse();
             component.setSelected(false);
             component.repaint();
-        }//放棋
-        // TODO: Implement capture function
+            component.revalidate();
+            view.repaint();
+            view.revalidate();
+        } else if (model.isValidCapture(selectedPoint, point)) {
+            model.captureChessPiece(selectedPoint, point);
+            view.removeChessComponentAtGrid(point);
+            view.setChessComponentAtGrid(point, view.removeChessComponentAtGrid(selectedPoint));
+            selectedPoint = null;
+//            setCanStepFalse();
+            swapColor();
+            view.repaint();
+            view.revalidate();
+            component.revalidate();
+        }
     }
-
-
+//    public ArrayList<ChessboardPoint> getCanStepPoints(ChessboardPoint src) {
+//        ArrayList<ChessboardPoint> list = new ArrayList<>();
+//        for (int i = 0; i < 9; i++) {
+//            for (int j = 0; j < 7; j++) {
+//                ChessboardPoint dest = new ChessboardPoint(i, j);
+//                if (model.isValidMove(src, dest)){
+//                    view.gridComponents[i][j].canStep = true;
+//                    list.add(dest);
+//                }
+//                if (model.isValidCapture(src, dest)){
+//                    view.gridComponents[i][j].canStep = true;
+//                    list.add(dest);
+//                }
+//            }
+//        }
+//        return list;
+//    }
+//    public void setCanStepFalse() {
+//        for (int i = 0; i < 9; i++) {
+//            for (int j = 0; j < 7; j++) {
+//                view.gridViews[i][j].canStep = false;
+//            }
+//        }
+//    }
 }

@@ -25,24 +25,24 @@ public class Chessboard {
 
     private void initPieces() {
         grid[0][0].setPiece(new ChessPiece(PlayerColor.BLUE, "Tiger",6));
-        grid[0][2].setPiece(new ChessPiece(PlayerColor.BLUE, "Trap",9));
+        grid[0][2].setPiece(new ChessPiece(PlayerColor.BLUE, "Trap",0));
         grid[0][3].setPiece(new ChessPiece(PlayerColor.BLUE, "Cave",0));
-        grid[0][4].setPiece(new ChessPiece(PlayerColor.BLUE, "Trap",9));
+        grid[0][4].setPiece(new ChessPiece(PlayerColor.BLUE, "Trap",0));
         grid[0][6].setPiece(new ChessPiece(PlayerColor.BLUE, "Lion",7));
         grid[1][1].setPiece(new ChessPiece(PlayerColor.BLUE, "Dog",3));
-        grid[1][3].setPiece(new ChessPiece(PlayerColor.BLUE, "Trap",8));
+        grid[1][3].setPiece(new ChessPiece(PlayerColor.BLUE, "Trap",0));
         grid[1][5].setPiece(new ChessPiece(PlayerColor.BLUE, "Cat",2));
         grid[2][0].setPiece(new ChessPiece(PlayerColor.BLUE, "Mouse",1));
         grid[2][2].setPiece(new ChessPiece(PlayerColor.BLUE, "Leopard",5));
         grid[2][4].setPiece(new ChessPiece(PlayerColor.BLUE, "Wolf",4));
         grid[2][6].setPiece(new ChessPiece(PlayerColor.BLUE, "Elephant",8));
         grid[8][6].setPiece(new ChessPiece(PlayerColor.RED, "Lion",7));
-        grid[8][4].setPiece(new ChessPiece(PlayerColor.RED, "Trap",9));
+        grid[8][4].setPiece(new ChessPiece(PlayerColor.RED, "Trap",0));
         grid[8][3].setPiece(new ChessPiece(PlayerColor.RED, "Cave",0));
-        grid[8][2].setPiece(new ChessPiece(PlayerColor.RED, "TRAP",9));
+        grid[8][2].setPiece(new ChessPiece(PlayerColor.RED, "TRAP",0));
         grid[8][0].setPiece(new ChessPiece(PlayerColor.RED, "Tiger",6));
         grid[7][5].setPiece(new ChessPiece(PlayerColor.RED, "Dog",3));
-        grid[7][3].setPiece(new ChessPiece(PlayerColor.RED, "Trap",9));
+        grid[7][3].setPiece(new ChessPiece(PlayerColor.RED, "Trap",0));
         grid[7][1].setPiece(new ChessPiece(PlayerColor.RED, "Cat",2));
         grid[6][6].setPiece(new ChessPiece(PlayerColor.RED, "Mouse",1));
         grid[6][4].setPiece(new ChessPiece(PlayerColor.RED, "Leopard",5));
@@ -102,98 +102,125 @@ public class Chessboard {
             }
         }
         if (getChessPieceAt(src).getName().equals("Lion") || getChessPieceAt(src).getName().equals("Tiger")){
-            if (src.getCol()==1 && src.getRow()==2 && dest.getCol()==1 && dest.getRow()==6  ){
-                if (!(grid[3][1].getPiece().getName().equals("Mouse")) || (grid[4][1].getPiece().getName().equals("Mouse")) || (grid[5][1].getPiece().getName().equals("Mouse"))) {
-                    return true;
-                }
-                return false;
-            }
-            if (src.getCol()==2 && src.getRow()==2 && dest.getCol()==2 && dest.getRow()==6 && (!(grid[3][2].getPiece().getName().equals("Mouse")) || (grid[4][2].getPiece().getName().equals("Mouse")) || (grid[5][2].getPiece().getName().equals("Mouse")))){
+            if (src.getCol()==1 && src.getRow()==2 && dest.getCol()==1 && dest.getRow()==6 && grid[3][1].getPiece()==null && grid[4][1].getPiece()==null && grid[5][1].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==4 && src.getRow()==2 && dest.getCol()==4 && dest.getRow()==6 && (!((getChessPieceAt( new ChessboardPoint(3,4)).getName().equals("Mouse")) || (getChessPieceAt( new ChessboardPoint(4,4)).getName().equals("Mouse")) || (getChessPieceAt( new ChessboardPoint(5,4)).getName().equals("Mouse"))))){
+            if (src.getCol()==2 && src.getRow()==2 && dest.getCol()==2 && dest.getRow()==6 && grid[3][2].getPiece()==null && grid[4][2].getPiece()==null && grid[5][2].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==5 && src.getRow()==2 && dest.getCol()==5 && dest.getRow()==6 && (!((getChessPieceAt( new ChessboardPoint(3,5)).getName().equals("Mouse")) || (getChessPieceAt( new ChessboardPoint(4,5)).getName().equals("Mouse")) || (getChessPieceAt( new ChessboardPoint(5,5)).getName().equals("Mouse"))))){
+            if (src.getCol()==4 && src.getRow()==2 && dest.getCol()==4 && dest.getRow()==6 && grid[3][4].getPiece()==null && grid[4][4].getPiece()==null && grid[5][4].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==1 && src.getRow()==6 && dest.getCol()==1 && dest.getRow()==2 && (!((getChessPieceAt( new ChessboardPoint(3,1)).getName().equals("Mouse")) || (getChessPieceAt( new ChessboardPoint(4,1)).getName().equals("Mouse")) || (getChessPieceAt( new ChessboardPoint(5,1)).getName().equals("Mouse"))))){
+            if (src.getCol()==5 && src.getRow()==2 && dest.getCol()==5 && dest.getRow()==6 && grid[3][5].getPiece()==null && grid[4][5].getPiece()==null && grid[5][5].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==2 && src.getRow()==6 && dest.getCol()==2 && dest.getRow()==2 && (!((getChessPieceAt( new ChessboardPoint(3,2)).getName().equals("Mouse")) || (getChessPieceAt( new ChessboardPoint(4,2)).getName().equals("Mouse")) || (getChessPieceAt( new ChessboardPoint(5,2)).getName().equals("Mouse"))))){
+            if (src.getCol()==1 && src.getRow()==6 && dest.getCol()==1 && dest.getRow()==2 && grid[3][1].getPiece()==null && grid[4][1].getPiece()==null && grid[5][1].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==4 && src.getRow()==6 && dest.getCol()==4 && dest.getRow()==2 && (!((getChessPieceAt( new ChessboardPoint(3,4)).getName().equals("Mouse")) || (getChessPieceAt( new ChessboardPoint(4,4)).getName().equals("Mouse")) || (getChessPieceAt( new ChessboardPoint(5,4)).getName().equals("Mouse"))))){
+            if (src.getCol()==2 && src.getRow()==6 && dest.getCol()==2 && dest.getRow()==2 && grid[3][2].getPiece()==null && grid[4][2].getPiece()==null && grid[5][2].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==5 && src.getRow()==6 && dest.getCol()==5 && dest.getRow()==2 && (!((getChessPieceAt( new ChessboardPoint(3,5)).getName().equals("Mouse")) || (getChessPieceAt( new ChessboardPoint(4,5)).getName().equals("Mouse")) || (getChessPieceAt( new ChessboardPoint(5,5)).getName().equals("Mouse"))))){
+            if (src.getCol()==4 && src.getRow()==6 && dest.getCol()==4 && dest.getRow()==2 && grid[3][4].getPiece()==null && grid[4][4].getPiece()==null && grid[5][4].getPiece()==null){
+                return true;
+            }
+            if (src.getCol()==5 && src.getRow()==6 && dest.getCol()==5 && dest.getRow()==2 && grid[3][5].getPiece()==null && grid[4][5].getPiece()==null && grid[5][5].getPiece()==null){
                 return true;
             }
 
 
-            if (src.getCol()==0 && src.getRow()==3 && dest.getCol()==3 && dest.getRow()==3 && (!((getChessPieceAt(new ChessboardPoint(3,1)).getName().equals("Mouse")) || (getChessPieceAt(new ChessboardPoint(3,2)).getName().equals("Mouse"))))){
+            if (src.getCol()==0 && src.getRow()==3 && dest.getCol()==3 && dest.getRow()==3 && grid[3][1].getPiece()==null && grid[3][2].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==0 && src.getRow()==4 && dest.getCol()==3 && dest.getRow()==4 && (!((getChessPieceAt(new ChessboardPoint(4,1)).getName().equals("Mouse")) || (getChessPieceAt(new ChessboardPoint(4,2)).getName().equals("Mouse"))))){
+            if (src.getCol()==0 && src.getRow()==4 && dest.getCol()==3 && dest.getRow()==4 && grid[4][1].getPiece()==null && grid[4][2].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==0 && src.getRow()==5 && dest.getCol()==3 && dest.getRow()==5 && (!((getChessPieceAt(new ChessboardPoint(5,1)).getName().equals("Mouse")) || (getChessPieceAt(new ChessboardPoint(5,2)).getName().equals("Mouse"))))){
+            if (src.getCol()==0 && src.getRow()==5 && dest.getCol()==3 && dest.getRow()==5 && grid[5][1].getPiece()==null && grid[5][2].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==3 && src.getRow()==3 && dest.getCol()==6 && dest.getRow()==3 && (!((getChessPieceAt(new ChessboardPoint(3,4)).getName().equals("Mouse")) || (getChessPieceAt(new ChessboardPoint(3,5)).getName().equals("Mouse"))))){
+            if (src.getCol()==3 && src.getRow()==3 && dest.getCol()==6 && dest.getRow()==3 && grid[3][4].getPiece()==null && grid[3][5].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==3 && src.getRow()==4 && dest.getCol()==6 && dest.getRow()==4 && (!((getChessPieceAt(new ChessboardPoint(4,4)).getName().equals("Mouse")) || (getChessPieceAt(new ChessboardPoint(4,5)).getName().equals("Mouse"))))){
+            if (src.getCol()==3 && src.getRow()==4 && dest.getCol()==6 && dest.getRow()==4 && grid[4][4].getPiece()==null && grid[4][5].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==3 && src.getRow()==5 && dest.getCol()==6 && dest.getRow()==5 && (!((getChessPieceAt(new ChessboardPoint(5,4)).getName().equals("Mouse")) || (getChessPieceAt(new ChessboardPoint(5,5)).getName().equals("Mouse"))))){
+            if (src.getCol()==3 && src.getRow()==5 && dest.getCol()==6 && dest.getRow()==5 && grid[5][4].getPiece()==null && grid[5][5].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==3 && src.getRow()==3 && dest.getCol()==0 && dest.getRow()==3 && (!((getChessPieceAt(new ChessboardPoint(3,1)).getName().equals("Mouse")) || (getChessPieceAt(new ChessboardPoint(3,2)).getName().equals("Mouse"))))){
+            if (src.getCol()==3 && src.getRow()==3 && dest.getCol()==0 && dest.getRow()==3 && grid[3][1].getPiece()==null && grid[3][2].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==3 && src.getRow()==4 && dest.getCol()==0 && dest.getRow()==4 && (!((getChessPieceAt(new ChessboardPoint(4,1)).getName().equals("Mouse")) || (getChessPieceAt(new ChessboardPoint(4,2)).getName().equals("Mouse"))))){
+            if (src.getCol()==3 && src.getRow()==4 && dest.getCol()==0 && dest.getRow()==4 && grid[4][1].getPiece()==null && grid[4][2].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==3 && src.getRow()==5 && dest.getCol()==0 && dest.getRow()==5 && (!((getChessPieceAt(new ChessboardPoint(5,1)).getName().equals("Mouse")) || (getChessPieceAt(new ChessboardPoint(5,2)).getName().equals("Mouse"))))){
+            if (src.getCol()==3 && src.getRow()==5 && dest.getCol()==0 && dest.getRow()==5 && grid[5][1].getPiece()==null && grid[5][2].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==6 && src.getRow()==3 && dest.getCol()==3 && dest.getRow()==3 && (!((getChessPieceAt(new ChessboardPoint(3,4)).getName().equals("Mouse")) || (getChessPieceAt(new ChessboardPoint(3,5)).getName().equals("Mouse"))))){
+            if (src.getCol()==6 && src.getRow()==3 && dest.getCol()==3 && dest.getRow()==3 && grid[3][4].getPiece()==null && grid[3][5].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==6 && src.getRow()==4 && dest.getCol()==3 && dest.getRow()==4 && (!((getChessPieceAt(new ChessboardPoint(4,4)).getName().equals("Mouse")) || (getChessPieceAt(new ChessboardPoint(4,5)).getName().equals("Mouse"))))){
+            if (src.getCol()==6 && src.getRow()==4 && dest.getCol()==3 && dest.getRow()==4 && grid[4][4].getPiece()==null && grid[4][5].getPiece()==null){
                 return true;
             }
-            if (src.getCol()==6 && src.getRow()==5 && dest.getCol()==3 && dest.getRow()==5 && (!((getChessPieceAt(new ChessboardPoint(5,4)).getName().equals("Mouse")) || (getChessPieceAt(new ChessboardPoint(5,5)).getName().equals("Mouse"))))){
+            if (src.getCol()==6 && src.getRow()==5 && dest.getCol()==3 && dest.getRow()==5 && grid[5][4].getPiece()==null && grid[5][5].getPiece()==null){
                 return true;
             }
         }
-        //TODO:还需完善
         return calculateDistance(src, dest) == 1;
     }
-    public void captureChessPiece(ChessboardPoint src, ChessboardPoint dest) {
-        if (isValidCapture(src, dest)) {
-            throw new IllegalArgumentException("Illegal chess capture!");
-        }
-        // TODO: Finish the method.
-    }
-
+    //移动棋子
 
     public boolean isValidCapture(ChessboardPoint src, ChessboardPoint dest) {
-        /*if (getChessPieceAt(src).getName() == "Cave" || getChessPieceAt(src).getName() == "Trap" ){
-            return true;
+        ChessPiece attacker = getChessPieceAt(src);
+        ChessPiece defender = getChessPieceAt(dest);
+        if (attacker == null || defender == null){
+            return false;
         }
-        if (getChessPieceAt(src).getName() == "River"){
-            return true;
-        }*/
+        if (attacker.getOwner() == defender.getOwner()){
+            return false;
+        }
+        if (attacker.getName().equals("Elephant")){
+            if (defender.getRank() != 1){
+                return true;
+            }
+            return false;
+        }
+        if (attacker.getName().equals("Mouse")){
+            if ((src.getRow()>=3 && src.getRow()<=5 && src.getCol()>=1 && src.getCol()<=2) || (src.getRow()>=3 && src.getRow()<=5 && src.getCol()>=4 && src.getCol()<=5) ){
+                return false;
+            }
+            if (defender.getName().equals("Elephant") || defender.getRank() <= 1){
+                return true;
+            }
+            return false;
+        }
+        if ( !(attacker.getName().equals("Elephant") || attacker.getName().equals("Mouse")) ){
+            if (attacker.getRank() >= defender.getRank()){
+                return true;
+            }
+            return false;
+        }
         // TODO:Fix this method
         return false;
     }
+    public void captureChessPiece(ChessboardPoint src, ChessboardPoint dest) {
+        if (!(isValidCapture(src, dest))) {
+            throw new IllegalArgumentException("Illegal chess capture!");
+        }
+        ChessPiece attacker = removeChessPiece(src);
+        ChessPiece defender = removeChessPiece(dest);
+        setChessPiece(dest,attacker);
+        // TODO: Finish the method.
+    }
+
 
     public Cell[][] getGrid() {
         return grid;
     }
     public PlayerColor getChessPieceOwner(ChessboardPoint point) {
+        return getGridAt(point).getPiece().getOwner();
+    }
+
+    public  PlayerColor getChessOwner(ChessboardPoint point) {
         return getGridAt(point).getPiece().getOwner();
     }
 }
