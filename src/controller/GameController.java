@@ -121,27 +121,7 @@ public class GameController implements GameListener {
             component.revalidate();
         }
     }
-//    public ArrayList<ChessboardPoint> getCanStepPoints(ChessboardPoint src) {
-//        ArrayList<ChessboardPoint> list = new ArrayList<>();
-//        for (int i = 0; i < 9; i++) {
-//            for (int j = 0; j < 7; j++) {
-//                ChessboardPoint dest = new ChessboardPoint(i, j);
-//                if (model.isValidMove(src, dest)){
-//                    view.gridComponents[i][j].canStep = true;
-//                    list.add(dest);
-//                }
-//                if (model.isValidCapture(src, dest)){
-//                    view.gridComponents[i][j].canStep = true;
-//                    list.add(dest);
-//                }
-//            }
-//        }
-//        return list;
-//    }
-//    public void setCanStepFalse() {
-//        for (int i = 0; i < 9; i++) {
-//            for (int j = 0; j < 7; j++) {
-//                view.gridViews[i][j].canStep = false;
+
 //            }
 //        }
 //    }
